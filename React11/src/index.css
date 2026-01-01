@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html , body{
+    height: 100%;
+    width: 100%;
+}
+input{
+    background-color: rgb(190, 184, 184);
+    padding: 20px;
+    margin: 20px;
+    border: none;
+    color: black;
+    font-size: 30px;
+}
+button{
+    padding: 20px  30px;
+    background-color: lightseagreen;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 30px;
+}
+button:active{
+    scale: 0.95;
+}

@@ -1,0 +1,30 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html , body{
+    height: 100%;
+    width: 100%;
+}
+button{
+  padding: 15px 25px ;
+  background-color: lightseagreen;
+  margin: 10px;
+  border: none;
+  font-size: 30px;
+  border-radius: 5px;
+}
+h1{
+  font-size: 300px;
+  text-align: center;
+  margin: 10px;
+  background-color: lightblue;
+  height: 300px;
+  width: 575px;
+   border-radius: 5px;
+}
+
+button:active{
+  scale: 0.95;
+}
