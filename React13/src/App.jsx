@@ -2,8 +2,12 @@ import React, { useState } from 'react'
 
 const App = () => {
   const [title, setTitle] = useState("")
-  const [tasks, setTasks] = useState([])
   const [detail, setDetail] = useState("")
+
+    const localData=JSON.parse(localStorage.getItem("all-notes")) || []
+    const [tasks, setTasks] = useState(localData)
+    
+
 
 
   const submitHandler = (e) => {
@@ -17,9 +21,11 @@ const App = () => {
       detail: detail,
     }
 
-    setTasks([...tasks, newTask])
    console.log(newTask);
-   
+   const updatedTasks = [...tasks, newTask]
+   localStorage.setItem("all-notes",JSON.stringify(updatedTasks))
+    setTasks(updatedTasks)
+
 
   }
 
@@ -28,7 +34,7 @@ const App = () => {
     const copyTask =[...tasks]
     copyTask.splice(idx,1)
    setTasks(copyTask)
-       
+    localStorage.setItem("all-notes",JSON.stringify(copyTask))
     
   }
 

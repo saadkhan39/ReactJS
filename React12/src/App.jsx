@@ -4,10 +4,12 @@ import Card from './components/Card'
 const App = () => {
 
   const [title, setTitle] = useState("")
-  const [allUsers, setAllUsers] = useState([])
   const [image, setImage] = useState("")
   const [description, setDescription] = useState("")
-  
+
+  const localData=JSON.parse(localStorage.getItem("all-users")) || []
+    const [allUsers, setAllUsers] = useState(localData)
+
 
   const submitHandler=(e)=>{
       e.preventDefault()      
@@ -17,7 +19,9 @@ const App = () => {
       console.log(title,image,description);
       const newUser={name: title, image: image, description: description}
       console.log(newUser);      
-      setAllUsers([...allUsers, newUser])
+      const updatedUsers = [...allUsers, newUser]
+      setAllUsers(updatedUsers)
+      localStorage.setItem("all-users",JSON.stringify(updatedUsers))
 
       
   }
@@ -27,11 +31,12 @@ const App = () => {
     const newTask=[...allUsers]
     newTask.splice(idx,1)
     setAllUsers(newTask)
-    
+    localStorage.setItem("all-users",JSON.stringify(newTask))
+
   }
 
   return(
-    <div className="min-h-screen bg-gradient-to-br  from-black via-gray-900 to-black p-10">
+    <div className="min-h-screen bg-linear-to-br  from-black via-gray-900 to-black p-10">
       
       {/* Form Section */}
       <form 
