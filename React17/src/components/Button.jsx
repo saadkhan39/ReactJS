@@ -4,7 +4,9 @@ const Button = ({ index, setIndex, setUserData }) => {
   return (
     <div>
          <div className='flex  items-center justify-center gap-5'>
-      <button onClick={()=>{
+      <button 
+       style={{opacity:index==1 ? 0.5:1}}
+      onClick={()=>{
         if(index>1){
           setUserData([])
            setIndex(index-1)  
